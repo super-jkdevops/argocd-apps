@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: example-app01
+  name: example01
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: example-app01
+      app: example01
   template:
     metadata:
       labels:
-        app: example-app01
+        app: example01
     spec:
       containers:
       - image: busybox
-        name: example-app01
+        name: container1
         command: ["sleep", "3600"]
