@@ -10,7 +10,8 @@ data:
     <title>...Wellcome in ArgoCD...</title>
     </head>
     <body>
-    Hello this is ArgoCD Daemon Set!
+    Hello this is ArgoCD Daemon Set!</br>
+    <b>This is update hope will be visible in Argo :)</b>
     </body>
     </html>
 ---
