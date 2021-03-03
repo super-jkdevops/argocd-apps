@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: example-app02
+spec:
+  selector:
+    matchLabels:
+      app: example-app02
+  serviceName: "example-app02"
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: example-app02
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        volumeMounts:
+        - name: index-file        
+          mountPath: /usr/share/nginx/www/index.html              
+      volumes:                
+      - configMap: 
+          name: nginx-index-file-config-map
+        name: index-file 
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-index-file-config-map
+data:
+    index-file: |-
+    <html>
+    <body>
+    Hell my name is Janusz
+    </body>
+    </html>
