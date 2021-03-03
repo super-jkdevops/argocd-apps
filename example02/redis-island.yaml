@@ -13,17 +13,18 @@ data:
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: example-app02
+  name: fluentd-elasticsearch
+  namespace: kube-system
   labels:
-    app: example-app02  
+    app-name: app02
 spec:
   selector:
     matchLabels:
-      app: example-app02
-    template:
-      metadata:
-        labels:
-          name: example-app02
+      app-name: app02
+  template:
+    metadata:
+      labels:
+        app-name: app02
       spec:
         containers:
         - name: nginx
@@ -43,7 +44,7 @@ metadata:
   name: example-app02-svc
 spec:
   selector:
-    app: example-app02
+    app-name: app02
   ports:
     - protocol: TCP
       port: 80
