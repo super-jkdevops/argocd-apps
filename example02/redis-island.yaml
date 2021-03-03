@@ -30,7 +30,7 @@ kind: ConfigMap
 metadata:
   name: nginx-index-file-config-map
 data:
-    index-file: |-
+  index-file: |-
     <html>
     <body>
     Hell my name is Janusz
