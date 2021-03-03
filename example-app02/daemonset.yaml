@@ -17,7 +17,7 @@ data:
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: example-app02
+  name: example02
   labels:
     app-name: app02
 spec:
