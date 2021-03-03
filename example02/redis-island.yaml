@@ -13,8 +13,7 @@ data:
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: fluentd-elasticsearch
-  namespace: kube-system
+  name: example-app02
   labels:
     app-name: app02
 spec:
@@ -25,18 +24,17 @@ spec:
     metadata:
       labels:
         app-name: app02
-      spec:
-        containers:
-        - name: nginx
-          image: nginx
-          ports:
-          volumeMounts:
-          - name: index-file        
-            mountPath: /usr/share/nginx/www/index.html              
-        volumes:                
-        - configMap: 
-            name: nginx-index-file-config-map
-          name: index-file
+    spec:
+      containers:
+      - name: webserver
+        image: nginx:latest
+        volumeMounts:
+        - name: index-file
+          mountPath: /usr/share/nginx/www/index.html
+      volumes:
+      - configMap:
+          name: nginx-index-file-config-map
+        name: index-file
 ---
 apiVersion: v1
 kind: Service
@@ -50,5 +48,5 @@ spec:
       port: 80
       targetPort: 80
       nodePort: 30080
-type: NodePort
+  type: NodePort
   
