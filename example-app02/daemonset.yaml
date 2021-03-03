@@ -6,8 +6,11 @@ metadata:
 data:
   index.html: |-
     <html>
+    <head>
+    <title>...Wellcome in ArgoCD...</title>
+    </head>
     <body>
-    Hell my name is Janusz
+    Hello this is ArgoCD Daemon Set!
     </body>
     </html>
 ---
