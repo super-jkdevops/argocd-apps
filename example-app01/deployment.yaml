@@ -16,3 +16,5 @@ spec:
       - image: busybox
         name: container1
         command: ["sleep", "3600"]
+      - image: nginx
+        name: container2
