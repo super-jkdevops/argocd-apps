@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: nginx-index-file-config-map
+  name: nginx-index-configmap
 data:
   index.html: |-
     <html>
@@ -30,12 +30,13 @@ spec:
       - name: webserver
         image: nginx:latest
         volumeMounts:
-        - name: index.html
-          mountPath: /usr/share/nginx/html
+        - name: index-volume
+          mountPath: /usr/share/nginx/html/index.html
+          subPath: index
       volumes:
-      - configMap:
-          name: nginx-index-file-config-map
-        name: index.html
+      - name: index-volume
+        configMap:
+          name: nginx-index-configmap
 ---
 apiVersion: v1
 kind: Service
