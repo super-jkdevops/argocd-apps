@@ -31,8 +31,7 @@ spec:
         image: nginx:latest
         volumeMounts:
         - name: index-volume
-          mountPath: /usr/share/nginx/html/index.html
-          subPath: index
+          mountPath: /usr/share/nginx/html
       volumes:
       - name: index-volume
         configMap:
