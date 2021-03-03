@@ -3,18 +3,16 @@ kind: Deployment
 metadata:
   name: example01
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
-      app: example01
+      app-name: app01
   template:
     metadata:
       labels:
-        app: example01
+        app-name: app01
     spec:
       containers:
       - image: busybox
         name: container1
-        command: ["sleep", "3600"]
-      - image: nginx
-        name: container2
+        command: ["sleep", "infinity"]
