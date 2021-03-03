@@ -30,7 +30,7 @@ spec:
         image: nginx:latest
         volumeMounts:
         - name: index-file
-          mountPath: /usr/share/nginx/www/index.html
+          mountPath: /usr/share/nginx/html/index.html
       volumes:
       - configMap:
           name: nginx-index-file-config-map
